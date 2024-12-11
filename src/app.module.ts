@@ -6,7 +6,11 @@ import { TasksController } from './tasks/tasks.controller';
 import { MongooseModule } from '@nestjs/mongoose';
 
 @Module({
-  imports: [MongooseModule.forRoot('mongodb://localhost/tasksdb'), TasksModule],
+  //The forRoot() method accepts the same configuration object as mongoose.connect() from the Mongoose package
+  imports: [
+    MongooseModule.forRoot('mongodb://127.0.0.1:27017/tasks'),
+    TasksModule,
+  ],
   controllers: [TasksController],
   //controllers: [],
   //providers: [],
